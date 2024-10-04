@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Flashcards</title>
+</head>
+<body>
+    <h1>Generate Flashcards</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="id_university">University:</label>
+            {{ form.university }}
+        </div>
+        <div>
+            <label for="id_class_field">Class:</label>
+            {{ form.class_field }}
+        </div>
+        <div>
+            <label for="id_topic">Topic (Optional):</label>
+            {{ form.topic }}
+        </div>
+
+        <button type="submit">Generate Flashcards</button>
+    </form>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
